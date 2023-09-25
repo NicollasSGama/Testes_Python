@@ -17,7 +17,9 @@ from PySimpleGUI import (
 # window.close()
 
 layout = [
-    [Image(filename='teste.png')],
+    [
+        Image(filename='teste.png')
+    ],
     [Text('Email:'), Input()],
     [Text('Senha:'), Input(password_char='*')],
     [Button('Login'), Button('Esqueci a senha')]
@@ -25,7 +27,7 @@ layout = [
 
 window = Window(
     'Título da Janela',
-    size=(400, 300),
+    size=(600, 400),
     layout=layout
 )
 

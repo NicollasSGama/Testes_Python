@@ -7,6 +7,7 @@ from PySimpleGUI import (
 def janela_A():
     layout = [
         [
+            Text('Janela A'),
             Button('Janela A'),
             Button('Janela B')
         ],
@@ -20,6 +21,7 @@ def janela_A():
 def janela_B():
     layout = [
         [
+            Text('Janela B'),
             Button('Janela A'),
             Button('Janela B')
         ],
