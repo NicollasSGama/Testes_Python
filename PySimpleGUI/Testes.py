@@ -34,7 +34,7 @@ while True:
     events, values = window.read()
     match(events):
         case 'Janela A' | 'Janela B':
-            window.close() # Fechar a janela antes de abrir outra
+            window.close() # Fechar a janela antes de abrir outra para não abrir uma janela atrás da outra
             match(events): #Trocar para outra janela pois o 'events e values' são '=' a window
                 case 'Janela A':
                     window = janela_B()
