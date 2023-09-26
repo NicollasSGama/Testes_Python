@@ -3,7 +3,7 @@ from PySimpleGUI import (
     Column, VSeparator, HSeparator, Push,
     theme, popup, Checkbox
 )
-
+# Deixar tudo um em baixo do outro
 def janelaCadastro():
     theme('DarkPurple')
 
