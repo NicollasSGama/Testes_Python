@@ -43,10 +43,10 @@ def janelaRecuperarSenha():
         [
             Push(),
 
-            Button('Recuperar')
+            Button('VERIFICAR')
         ]
     ]
-    return Window('Recuperar',
+    return Window('Verificar',
                   layout=layout,
                   #size=(300, 320)
                   )
