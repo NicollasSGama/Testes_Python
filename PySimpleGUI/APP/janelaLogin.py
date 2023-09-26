@@ -14,7 +14,8 @@ def janelaLogin():
         [
             Image(),
 
-            Text('Entrar'),
+            Text('Entrar',
+                 pad=(5, 5)),
 
             Push(),
 
@@ -24,7 +25,7 @@ def janelaLogin():
         #   Linha horizontal
         # ------------------------------------------------------------------
         [
-          HSeparator()
+          HSeparator(pad=(5, 15))
         ],
 
         [
