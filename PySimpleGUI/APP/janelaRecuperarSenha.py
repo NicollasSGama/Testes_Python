@@ -11,11 +11,13 @@ def janelaRecuperarSenha():
         #   Parte superior e botão voltar
         # ------------------------------------------------------------------
         [
-            Image(),
+            Button('VOLTAR'),
 
             Push(),
 
-            Button('VOLTAR')
+            Text('RECUPERAR SENHA',),
+
+            Push()
         ],
         # ------------------------------------------------------------------
         #   Linha horizontal
@@ -26,10 +28,6 @@ def janelaRecuperarSenha():
         # ------------------------------------------------------------------
         #   Parte: Recuperar senha
         # ------------------------------------------------------------------
-        [
-            Text('RECUPERAR SENHA')
-        ],
-
         [
             Text('CPF')
         ],
@@ -61,11 +59,11 @@ def janelaNovaSenha():
         #   Parte superior e botão voltar
         # ------------------------------------------------------------------
         [
-            Image(),
+            Button('Voltar'),
 
             Push(),
 
-            Button('Voltar')
+            Image()
         ],
         # ------------------------------------------------------------------
         #   Recuperar senha (nova)
