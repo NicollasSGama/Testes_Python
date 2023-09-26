@@ -12,13 +12,13 @@ def janelaCadastro():
         #   Parte superior e botão 'entrar'
         # ------------------------------------------------------------------
         [
-            Image(),
+            Button('VOLTAR'),
 
             Text('Cadastrar'),
 
             Push(),
 
-            Button('ENTRAR')
+            Image()
         ],
         # ------------------------------------------------------------------
         #   Linha horizontal
@@ -37,15 +37,17 @@ def janelaCadastro():
         # ------------------------------------------------------------------
         [
             Text('NOME'),
-
-            Push(),
-
-            Text('SOBRENOME')
         ],
 
         [
             Input('ex.: Dolores'),
+        ],
 
+        [
+            Text('SOBRENOME')
+        ],
+
+        [
             Input('ex.: da Silva')
         ],
         # ------------------------------------------------------------------
@@ -85,15 +87,17 @@ def janelaCadastro():
         # ------------------------------------------------------------------
         [
             Text('SENHA'),
-
-            Push(),
-
-            Text('SENHA (CONFIRMAR)')
         ],
 
         [
             Input('*****'),
+        ],
 
+        [
+            Text('SENHA (CONFIRMAR)')
+        ],
+
+        [
             Input('*****')
         ],
         # ------------------------------------------------------------------
