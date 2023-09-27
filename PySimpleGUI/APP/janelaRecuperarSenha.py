@@ -3,9 +3,10 @@ from PySimpleGUI import (
     Column, VSeparator, HSeparator, Push,
     theme, popup, Checkbox, Frame
 )
+from Variavel import *
 
 def janela_recuperar_senha():
-    theme('LightBlue2')
+    theme(tema)
     layout = [
         [
             Text('CPF')

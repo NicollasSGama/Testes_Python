@@ -3,8 +3,10 @@ from PySimpleGUI import (
     Column, VSeparator, HSeparator, Push,
     theme, popup, Checkbox, Frame
 )
+from Variavel import *
+
 def janela_contato():
-    theme('LightBlue2')
+    theme(tema)
 
     layout_meio1 = [
         [
@@ -34,7 +36,8 @@ def janela_contato():
         ],
 
         [
-            Input(disabled=True)
+            Input(readonly=True,
+                  enable_events=True)
         ],
 
         [
@@ -72,7 +75,8 @@ def janela_contato():
         ],
 
         [
-            Input(disabled=True)
+            Input(readonly=True,
+                  enable_events=True)
         ],
 
         [
@@ -80,7 +84,8 @@ def janela_contato():
         ],
 
         [
-            Input(disabled=True)
+            Input(readonly=True,
+                  enable_events=True)
         ],
 
         [
@@ -88,7 +93,8 @@ def janela_contato():
         ],
 
         [
-            Input(disabled=True)
+            Input(readonly=True,
+                  enable_events=True)
         ],
 
         [

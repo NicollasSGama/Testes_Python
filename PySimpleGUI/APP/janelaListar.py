@@ -3,8 +3,9 @@ from PySimpleGUI import (
     Column, VSeparator, HSeparator, Push,
     theme, popup, Checkbox, Spin, Frame
 )
+from Variavel import *
 def janela_contato():
-    theme('LightBlue2')
+    theme(tema)
 
     layout = [
         [

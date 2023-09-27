@@ -3,20 +3,21 @@ from PySimpleGUI import (
     Column, VSeparator, HSeparator, Push,
     theme, popup, Checkbox, Frame
 )
+from Variavel import *
 
 def janelaLogin():
-    theme('LightBlue2')
+    theme(tema)
 
     layout_entrar = [
         # ------------------------------------------------------------------
         #   Bloco para entrar
         # ------------------------------------------------------------------
         [
-            Text('E-mail')
+            Text('CPF')
         ],
 
         [
-            Input('ex.: dolores@contato.com')
+            Input('ex.: 182.254.XXX-X')
         ],
 
         [

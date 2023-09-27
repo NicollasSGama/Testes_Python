@@ -3,3 +3,4 @@ from PySimpleGUI import (
     Column, VSeparator, HSeparator, Push,
     theme, popup, Checkbox
 )
+from Variavel import *
