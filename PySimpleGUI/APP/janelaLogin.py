@@ -1,59 +1,36 @@
 from PySimpleGUI import (
     Window, Button, Text, Image, Input,
     Column, VSeparator, HSeparator, Push,
-    theme, popup, Checkbox
+    theme, popup, Checkbox, Frame
 )
 
 def janelaLogin():
-    theme('DarkPurple')
+    theme('LightBlue2')
 
-    layout = [
+    layout_entrar = [
         # ------------------------------------------------------------------
-        #   Parte superior e botão registro
+        #   Bloco para entrar
         # ------------------------------------------------------------------
         [
-            Image(),
+            Text('E-mail')
+        ],
 
-            Text('Entrar',
-                 pad=(5, 5)),
+        [
+            Input('ex.: dolores@contato.com')
+        ],
 
-            Push(),
+        [
+            Text('Senha')
+        ],
 
-            Button('Registrar', key='-REG-')
+        [
+            Input('*****')
         ],
         # ------------------------------------------------------------------
         #   Linha horizontal
         # ------------------------------------------------------------------
         [
-          HSeparator(pad=(5, 15))
-        ],
-
-        [
-            # Tentar separar
-        ],
-        # ------------------------------------------------------------------
-        #   Entrar Email
-        # ------------------------------------------------------------------
-        [
-            Text('EMAIL')
-        ],
-
-        [
-            Input('ex.: dolores@contato.com',
-                  pad=(5, 10)
-                 )
-        ],
-        # ------------------------------------------------------------------
-        #   Entrar Senha
-        # ------------------------------------------------------------------
-        [
-            Text('SENHA')
-        ],
-
-        [
-            Input('*****',
-                  pad=(5, 10)
-                  )
+            HSeparator()
         ],
         # ------------------------------------------------------------------
         #   Entrar no programa
@@ -63,12 +40,23 @@ def janelaLogin():
 
             Push(),
 
+            Button('ESQUECI A SENHA'),
+
             Button('ENTRAR')
         ]
     ]
-    return Window('Login',
+
+    layout = [
+        [
+            Frame('ENTRAR',
+                  layout_entrar)
+        ]
+
+    ]
+
+    return Window('ENTRAR',
                   layout=layout,
-                  size=(300, 320)
+                  # size=(300, 320)
                   )
 
 janelalogin = janelaLogin()

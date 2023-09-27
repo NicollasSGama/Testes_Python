@@ -1,34 +1,141 @@
 from PySimpleGUI import (
     Window, Button, Text, Image, Input,
     Column, VSeparator, HSeparator, Push,
-    theme, popup, Checkbox, MenubarCustom,
-    Menubar
+    theme, popup, Checkbox, Frame
 )
 def janela_contato():
-    theme('DarkPurple')
+    theme('LightBlue2')
 
-    layout = [
+    layout_meio1 = [
         [
-            Menubar(
-                [
-                    ['Arquivo', ['Sair']],
-
-                    ['Editar',['Edite-me']]
-                ]
-            )
+            Text('E-mail')
         ],
 
         [
-            MenubarCustom(
-                [
-                    ['Nada', ['Nada']]
-                ]
-            )
+            Input('ex.:dorival@contato.com')
+        ]
+
+    ]
+
+    layout_meio2 = [
+        [
+            Text('Telefone')
+        ],
+
+        [
+            Input('ex.:(XX)96050-52XX')
+        ]
+
+    ]
+
+    layout_baixo1 = [
+        [
+            Text('Rua')
+        ],
+
+        [
+            Input(disabled=True)
+        ],
+
+        [
+            Text('Complemento')
+        ],
+
+        [
+            Input()
+        ],
+
+        [
+            Text('Cep')
+        ],
+
+        [
+            Input('ex.:02222-000')
+        ],
+
+        [
+            HSeparator()
+        ],
+
+        [
+            Button('VOLTAR'),
+
+            Push(),
+
+            Button('BUSCAR')
         ]
     ]
-    return Window('Menu',
+
+    layout_baixo2 = [
+        [
+            Text('Bairro')
+        ],
+
+        [
+            Input(disabled=True)
+        ],
+
+        [
+            Text('Cidade')
+        ],
+
+        [
+            Input(disabled=True)
+        ],
+
+        [
+            Text('Estado')
+        ],
+
+        [
+            Input(disabled=True)
+        ],
+
+        [
+            HSeparator()
+        ],
+
+        [
+            Push(),
+
+            Button('CADASTRAR')
+        ]
+    ]
+
+    layout_columa_meio = [
+        [
+            Column(layout_meio1),
+
+            VSeparator(),
+
+            Column(layout_meio2)
+        ],
+    ]
+
+    layout_columa_baixo = [
+        [
+            Column(layout_baixo1),
+
+            VSeparator(),
+
+            Column(layout_baixo2)
+        ]
+    ]
+
+    layout = [
+        [
+            Frame('CONTATO',
+                  layout_columa_meio),
+        ],
+
+        [
+            Frame('ENDEREÇO',
+                  layout_columa_baixo)
+        ]
+    ]
+
+    return Window('CONTATO',
                   layout=layout,
-                  size=(600, 400)
                   )
 
 contato = janela_contato()

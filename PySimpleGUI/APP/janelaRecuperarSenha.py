@@ -1,33 +1,12 @@
 from PySimpleGUI import (
     Window, Button, Text, Image, Input,
     Column, VSeparator, HSeparator, Push,
-    theme, popup, Checkbox
+    theme, popup, Checkbox, Frame
 )
 
-def janelaRecuperarSenha():
-    theme('Dark Purple')
+def janela_recuperar_senha():
+    theme('LightBlue2')
     layout = [
-        # ------------------------------------------------------------------
-        #   Parte superior e botão voltar
-        # ------------------------------------------------------------------
-        [
-            Button('VOLTAR'),
-
-            Push(),
-
-            Text('RECUPERAR SENHA',),
-
-            Push()
-        ],
-        # ------------------------------------------------------------------
-        #   Linha horizontal
-        # ------------------------------------------------------------------
-        [
-            HSeparator()
-        ],
-        # ------------------------------------------------------------------
-        #   Parte: Recuperar senha
-        # ------------------------------------------------------------------
         [
             Text('CPF')
         ],
@@ -35,36 +14,37 @@ def janelaRecuperarSenha():
         [
             Input('ex.: 123.456.789-x')
         ],
-        # ------------------------------------------------------------------
-        #   Parte inferior e botão recuperar
-        # ------------------------------------------------------------------
+
         [
+            HSeparator()
+        ],
+
+        [
+            Button('VOLTAR'),
+
             Push(),
 
             Button('VERIFICAR')
         ]
     ]
-    return Window('Verificar',
+
+    layout = [
+        [
+            Frame('RECUPERAR SENHA',
+                  layout)
+        ]
+    ]
+    return Window('VERIFICAÇÂO',
                   layout=layout,
                   #size=(300, 320)
                   )
-janelacpf = janelaRecuperarSenha()
+janelacpf = janela_recuperar_senha()
 janelacpf.read()
 
-def janelaNovaSenha():
-    theme('Dark Purple')
+def janela_nova_senha():
+    theme('LightBlue2')
 
     layout = [
-        # ------------------------------------------------------------------
-        #   Parte superior e botão voltar
-        # ------------------------------------------------------------------
-        [
-            Button('Voltar'),
-
-            Push(),
-
-            Image()
-        ],
         # ------------------------------------------------------------------
         #   Recuperar senha (nova)
         # ------------------------------------------------------------------
@@ -77,23 +57,38 @@ def janelaNovaSenha():
         ],
 
         [
-            Text('Nova Senha(repetir)')
+            Text('Nova Senha (Confirmar)')
         ],
 
         [
             Input('*****')
         ],
         # ------------------------------------------------------------------
+        #   Linha horizontal
+        # ------------------------------------------------------------------
+        [
+            HSeparator()
+        ],
+        # ------------------------------------------------------------------
         #   Parte inferior e botão recuperar
         # ------------------------------------------------------------------
         [
+            Button('VOLTAR'),
+
             Push(),
 
             Button('RECUPERAR')
         ]
     ]
-    return Window('NovaSenha',
+
+    layout = [
+        [
+            Frame('NOVA SENHA',
+                  layout)
+        ]
+    ]
+    return Window('NOVA SENHA',
                   layout=layout
                   )
-janelasenha = janelaNovaSenha()
+janelasenha = janela_nova_senha()
 janelasenha.read()

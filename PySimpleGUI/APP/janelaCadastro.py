@@ -1,42 +1,18 @@
 from PySimpleGUI import (
     Window, Button, Text, Image, Input,
     Column, VSeparator, HSeparator, Push,
-    theme, popup, Checkbox
+    theme, popup, Checkbox, Frame
 )
 # Deixar tudo um em baixo do outro
-def janelaCadastro():
-    theme('DarkPurple')
+def janela_cadastro():
+    theme('LightBlue2')
 
-    layout = [
+    layoutp = [
         # ------------------------------------------------------------------
-        #   Parte superior e botão 'entrar'
+        #   Bloco para registar funcionário
         # ------------------------------------------------------------------
         [
-            Button('VOLTAR'),
-
-            Text('Cadastrar'),
-
-            Push(),
-
-            Image()
-        ],
-        # ------------------------------------------------------------------
-        #   Linha horizontal
-        # ------------------------------------------------------------------
-        [
-            HSeparator()
-        ],
-        # ------------------------------------------------------------------
-        #   Registrar perfil
-        # ------------------------------------------------------------------
-        [
-            Text('PERFIL')
-        ],
-        # ------------------------------------------------------------------
-        #   Registrar nome e sobrenome
-        # ------------------------------------------------------------------
-        [
-            Text('NOME'),
+            Text('Nome'),
         ],
 
         [
@@ -44,49 +20,44 @@ def janelaCadastro():
         ],
 
         [
-            Text('SOBRENOME')
+            Text('Sobrenome')
         ],
 
         [
             Input('ex.: da Silva')
         ],
-        # ------------------------------------------------------------------
-        #   Registrar email
-        # ------------------------------------------------------------------
+
         [
-            Text('EMAIL')
+            Text('CPF')
         ],
 
         [
-            Input('ex.: dolores@contato.com')
+            Input('ex.: 123.456.789-x')
         ],
+
+        [
+            Button('CHECAR')
+        ]
+    ]
+
+    layoutu = [
         # ------------------------------------------------------------------
-        #   Linha horizontal
+        #   Bloco para registar usuário
         # ------------------------------------------------------------------
         [
-            HSeparator()
-        ],
-        # ------------------------------------------------------------------
-        #   Registrar conta
-        # ------------------------------------------------------------------
-        [
-            Text('CONTA')
-        ],
-        # ------------------------------------------------------------------
-        #   Registrar usuário
-        # ------------------------------------------------------------------
-        [
-            Text('NOME DE USUÁRIO')
+            Text('Nome de usuário')
         ],
 
         [
             Input('ex.: dolores_31')
         ],
-        # ------------------------------------------------------------------
-        #   Registrar Senha
-        # ------------------------------------------------------------------
+
         [
-            Text('SENHA'),
+            Button('CHECAR')
+        ],
+
+        [
+            Text('Senha'),
         ],
 
         [
@@ -94,30 +65,39 @@ def janelaCadastro():
         ],
 
         [
-            Text('SENHA (CONFIRMAR)')
+            Text('Senha (Confirmar)')
         ],
 
         [
             Input('*****')
         ],
-        # ------------------------------------------------------------------
-        #   Linha horizontal
-        # ------------------------------------------------------------------
+
         [
             HSeparator()
         ],
-        # ------------------------------------------------------------------
-        #   Registrar no programa
-        # ------------------------------------------------------------------
+
         [
+            Button('VOLTAR'),
+
             Push(),
 
             Button('CADASTRAR')
         ]
     ]
-    return Window('Registrar',
+    layout = [
+        [
+            Frame('CADASTRAR USUÁRIO',
+                  layoutp)
+        ],
+
+        [
+            Frame('CONTA',
+                  layoutu)
+        ]
+    ]
+    return Window('CADASTRAR',
                   layout=layout,
-                  #size=(300, 400)
                   )
-janelacadastro = janelaCadastro()
+
+janelacadastro = janela_cadastro()
 janelacadastro.read()
