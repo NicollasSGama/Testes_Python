@@ -9,6 +9,7 @@ from PySimpleGUI import (
     theme
 )
 
+
 def janela_atividade():
     theme('DarkBlue3')
 
@@ -64,7 +65,6 @@ def janela_atividade():
             Input(key='-SENHA_C-')
         ],
 
-
         [
             Text('Nascimento')
         ],
@@ -114,5 +114,11 @@ def janela_atividade():
     return Window('ATIVIDADE',
                   layout)
 
+
 janela = janela_atividade()
 janela.read()
+
+
+class Pessoa:
+    def __init__(self):
+        pass
