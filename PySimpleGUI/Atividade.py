@@ -114,4 +114,5 @@ def janela_atividade():
     return Window('ATIVIDADE',
                   layout)
 
-janela_atividade().read()
+janela = janela_atividade()
+janela.read()
