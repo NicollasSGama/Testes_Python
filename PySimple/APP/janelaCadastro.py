@@ -27,11 +27,15 @@ def janela_cadastro():
         ],
 
         [
-            Input('ex.: 123.456.789-x')
+            Input('ex.: 123.456.789-x',
+                  key='-CPF-'
+                  )
         ],
 
         [
-            Button('CHECAR')
+            Button('CHECAR',
+                   target='-CPF-'
+                   )
         ],
 
         [
@@ -61,7 +65,9 @@ def janela_cadastro():
 
         [
             Input(readonly=True,
-                  enable_events=True)
+                  enable_events=True,
+                  key='-NASCIMENTO-'
+                  )
         ],
 
         [
@@ -70,7 +76,8 @@ def janela_cadastro():
                            format='%d-%m-%Y',
                            month_names=(meses),
                            day_abbreviations=(dias),
-                           default_date_m_d_y=(1, 1, 2023)
+                           default_date_m_d_y=(1, 1, 2023),
+                           target='-NASCIMENTO-'
                            )
         ],
 
@@ -103,9 +110,14 @@ def janela_cadastro():
         ],
 
         [
-            Radio('Adm', 1),
+            Radio('Adm',
+                  1
+                  ),
 
-            Radio('Comum', 1)
+            Radio('Comum',
+                  1,
+                  default=True
+                  )
         ],
 
         [
@@ -181,6 +193,7 @@ def janela_cadastro():
                   )
 
 janelacadastro = janela_cadastro()
-janelacadastro.read()
 
+while True:
+    eventos, valores = janelacadastro.read()
 

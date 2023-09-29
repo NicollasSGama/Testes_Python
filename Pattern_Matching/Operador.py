@@ -84,16 +84,18 @@ match lista:
 # ------------------------------------------
 #   Dar nomes para usar depois
 # ------------------------------------------
-r = 1   # Pattern Matching tem o próprio escopo
-cor = (255, 255, 255)   #somente rbg
-cor = (255, 255, 255, 255)  #com alfa
+r = 1  # Pattern Matching tem o próprio escopo
+cor = (255, 255, 255)  # somente rbg
+cor = (255, 255, 255, 255)  # com alfa
 match cor:
-    case r, g, b:   # Tudo que tem vírgula no meio é considerado uma tuple em Python
+    case r, g, b:  # Tudo que tem vírgula no meio é considerado uma tuple em Python
         print(f'{r=}, {g=}, {b=}')
     case r, g, b, a:
         print(f'{r=}, {g=}, {b=}, {a=}')
-    case r, g, b, a, h: # padrão cmic (len(5))
+    case r, g, b, a, h:  # padrão cmic (len(5))
         print(f'{r=}, {g=}, {b=}, {a=}, {h=}')
+
+
 # ------------------------------------------
 #   Cláusula guardiã para grarantir
 # ------------------------------------------
@@ -116,5 +118,24 @@ def chato_das_cores(cor):
             return 'Azul? Sério?'
         case r, g, b, a:
             return 'Agora sim. :)'
+
+
 help(chato_das_cores)
+
+
 # ------------------------------------------
+# command
+# ------------------------------------------
+
+def executar_comando(command):
+    match command.split():
+        case ['ls', *paths, '--force']:
+            for path in paths:
+                print('$ listing files from', path)
+        case ['cd', path]:
+            print('S changing directory to', path)
+        case _:
+            print('$ command not implemented')
+
+
+executar_comando('ls /home /nicolas /etc --force')

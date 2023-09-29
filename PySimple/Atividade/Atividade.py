@@ -6,12 +6,11 @@ from PySimpleGUI import (
     Text, Input, Button, Column,
     HSeparator, VSeparator, Push,
     Window, Frame, CalendarButton,
-    theme
+    theme, popup
 )
 
-
 def janela_atividade():
-    theme('DarkBlue3')
+    theme('BluePurple')
 
     layout_esquerdo = [
         [
@@ -35,7 +34,13 @@ def janela_atividade():
         ],
 
         [
-            Input(key='-CPF-')
+            Input(key='-CPF-',
+                  size=(34, 1)
+                  ),
+
+            Button('CHECAR',
+                   key='CPF_B'
+                   ),
         ],
 
         [
@@ -43,8 +48,9 @@ def janela_atividade():
         ],
 
         [
-            Button('CHECAR',
-                   key='CPF_B'),
+            Button('FECHAR',
+                   key='-FECHAR-'
+                   )
         ]
     ]
 
@@ -54,7 +60,9 @@ def janela_atividade():
         ],
 
         [
-            Input(key='-SENHA-')
+            Input(key='-SENHA-',
+                  password_char='*'
+                  )
         ],
 
         [
@@ -62,17 +70,28 @@ def janela_atividade():
         ],
 
         [
-            Input(key='-SENHA_C-')
+            Input(key='-SENHA_C-',
+                  password_char='*'
+                  )
         ],
 
         [
-            Text('Nascimento')
+            Text('Data de nascimento')
         ],
 
         [
             Input(readonly=True,
                   enable_events=True,
-                  key='-CALENDARIO-')
+                  key='-CALENDARIO-',
+                  size=(30, 1)
+                  ),
+
+            CalendarButton('CALENDÁRIO',
+                           default_date_m_d_y=(1, 1, 2000),
+                           format='%d-%m-%Y',
+                           close_when_date_chosen=False,
+                           key='-CALENDARIO_B-'
+                           ),
         ],
 
         [
@@ -80,17 +99,11 @@ def janela_atividade():
         ],
 
         [
-            CalendarButton('CALENDÁRIO',
-                           default_date_m_d_y=(1, 1, 2023),
-                           format='%d-%m-%y',
-                           close_when_date_chosen=False,
-                           key='-CALENDARIO_B-'
-                           ),
-
             Push(),
 
             Button('REGISTRAR',
                    key='-REGISTRAR-',
+
                    )
         ]
     ]
@@ -116,9 +129,17 @@ def janela_atividade():
 
 
 janela = janela_atividade()
-janela.read()
+
+while True:
+    eventos, valores = janela.read()
+    match eventos:
+        case '-REGISTRAR-':
+            popup('Registro realizado!')
+            break
+        case '-FECHAR-'| None:
+            break
+
+janela.close()
 
 
-class Pessoa:
-    def __init__(self):
-        pass
+
