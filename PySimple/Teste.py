@@ -118,7 +118,13 @@ def make_window(theme=None):
         [
             name('Tab, TabGroup'),
             sg.TabGroup(
-                [[sg.Tab('Tab1', [[sg.T(s=(15, 2))]]), sg.Tab('Tab2', [[]])]]
+                [
+                    [
+                        sg.Tab(
+                            'Tab1',
+                            [
+                                [
+                                    sg.T(s=(15, 2))]]), sg.Tab('Tab2', [[]])]]
             ),
         ],
         [

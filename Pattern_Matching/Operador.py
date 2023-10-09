@@ -139,3 +139,4 @@ def executar_comando(command):
 
 
 executar_comando('ls /home /nicolas /etc --force')
+
