@@ -9,6 +9,7 @@ from PySimpleGUI import (
     theme, popup
 )
 
+
 def janela_atividade():
     theme('BluePurple')
 
@@ -88,7 +89,7 @@ def janela_atividade():
 
             CalendarButton('CALENDÁRIO',
                            default_date_m_d_y=(1, 1, 2000),
-                           format='%d-%m-%Y',
+                           format='%d/%m/%Y',
                            close_when_date_chosen=False,
                            key='-CALENDARIO_B-'
                            ),
@@ -102,8 +103,7 @@ def janela_atividade():
             Push(),
 
             Button('REGISTRAR',
-                   key='-REGISTRAR-',
-
+                   key='-REGISTRAR-'
                    )
         ]
     ]
@@ -125,7 +125,8 @@ def janela_atividade():
         ]
     ]
     return Window('ATIVIDADE',
-                  layout)
+                  layout,
+                  )
 
 
 janela = janela_atividade()
@@ -134,12 +135,12 @@ while True:
     eventos, valores = janela.read()
     match eventos:
         case '-REGISTRAR-':
-            popup('Registro realizado!')
-            break
-        case '-FECHAR-'| None:
+            nome = valores['-NOME-']
+            sobrenome = valores['-SOBRENOME-']
+            with open('Dados.txt, a+') as file:
+                file.write(f'{nome} {sobrenome}')
+                popup('Registro realizado!')
+        case '-FECHAR-' | None:
             break
 
 janela.close()
-
-
-

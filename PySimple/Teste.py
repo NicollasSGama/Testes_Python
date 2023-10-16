@@ -208,5 +208,10 @@ def make_window(theme=None):
 
 # Start of the program...
 window = make_window()
-window.read()
+while True:
+    eventos, valores = window.read()
+    match eventos:
+        case sg.WIN_CLOSED:
+            break
+
 window.close()

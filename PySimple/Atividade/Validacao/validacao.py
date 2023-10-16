@@ -1,7 +1,7 @@
 def validacao_cpf(cpf):
     match cpf:
-        case cpf.isdigit() if len(cpf) == 11:
-            return cpf
+        case _ if len(cpf) == 11:
+            return cpf.isdigit()  # deixa como True
 
 
 cpf = '12345678911'
@@ -9,6 +9,6 @@ print(validacao_cpf(cpf))
 
 d = '1'
 if d.isdigit:
-    pass
+    print(type(d))
 else:
-    pass
+    print('Nada')
