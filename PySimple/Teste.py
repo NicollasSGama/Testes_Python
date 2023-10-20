@@ -143,12 +143,7 @@ def make_window(theme=None):
             sg.MenubarCustom(
                 [
                     ['File', ['Exit']],
-                    [
-                        'Edit',
-                        [
-                            'Edit Me',
-                        ],
-                    ],
+                    ['Edit', ['Edit Me']]
                 ],
                 k='-CUST MENUBAR-',
                 p=0,
